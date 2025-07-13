@@ -1,6 +1,9 @@
+
+"use client";
+
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AuthButton from "./AuthButton";
 
 const MindBloomIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -11,6 +14,11 @@ const MindBloomIcon = (props: React.SVGProps<SVGSVGElement>) => (
 )
 
 export default function Header() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -42,8 +50,14 @@ export default function Header() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <ThemeToggle />
-          <AuthButton />
+          {isClient ? (
+            <>
+              <ThemeToggle />
+              <AuthButton />
+            </>
+          ) : (
+            <div className="h-10 w-24" /> // Placeholder for server render
+          )}
         </div>
       </div>
     </header>
