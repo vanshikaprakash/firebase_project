@@ -47,9 +47,9 @@ export default function SuggestionsView() {
             </div>
             <div className="max-w-2xl mx-auto mt-10 space-y-4">
                 {microSuggestions.map((suggestion, index) => (
-                    <Card key={index} className="bg-accent/20">
+                    <Card key={index} className="bg-accent/30 border-accent/50">
                         <CardContent className="p-6 flex items-start space-x-4">
-                           <CheckCircle className="w-6 h-6 text-teal-500 mt-1 shrink-0" />
+                           <CheckCircle className="w-6 h-6 text-accent-foreground mt-1 shrink-0" />
                            <p className="text-foreground">{suggestion}</p>
                         </CardContent>
                     </Card>
