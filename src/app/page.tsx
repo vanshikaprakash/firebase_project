@@ -34,11 +34,11 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="https://placehold.co/600x400.png"
+                src="https://source.unsplash.com/random/600x400?calm,mindfulness"
                 width="600"
                 height="400"
                 alt="A supportive mental health illustration showing a person meditating peacefully"
-                data-ai-hint="mind-checkin.png"
+                data-ai-hint="wellness illustration"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover shadow-sm sm:w-full lg:order-last"
               />
             </div>
