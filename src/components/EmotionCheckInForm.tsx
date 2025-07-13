@@ -20,12 +20,12 @@ import { Separator } from "@/components/ui/separator";
 import { Loader2, Smile, Frown, Brain, Angry, Zap, Feather } from "lucide-react";
 
 const emotions = [
-  { name: "Happy", icon: Smile },
-  { name: "Sad", icon: Frown },
-  { name: "Anxious", icon: Brain },
-  { name: "Angry", icon: Angry },
-  { name: "Stressed", icon: Zap },
-  { name: "Calm", icon: Feather },
+  { name: "Happy", icon: Smile, colors: "bg-yellow-100/40 text-yellow-800 ring-yellow-300" },
+  { name: "Sad", icon: Frown, colors: "bg-blue-100/40 text-blue-800 ring-blue-300" },
+  { name: "Anxious", icon: Brain, colors: "bg-purple-100/40 text-purple-800 ring-purple-300" },
+  { name: "Angry", icon: Angry, colors: "bg-red-100/40 text-red-800 ring-red-300" },
+  { name: "Stressed", icon: Zap, colors: "bg-gray-200/40 text-gray-800 ring-gray-300" },
+  { name: "Calm", icon: Feather, colors: "bg-green-100/40 text-green-800 ring-green-300" },
 ];
 
 const formSchema = z.object({
@@ -105,20 +105,24 @@ export default function EmotionCheckInForm() {
                   <FormLabel className="text-lg font-semibold text-center block mb-4">1. How are you feeling right now?</FormLabel>
                   <FormControl>
                     <div className="grid grid-cols-3 gap-4">
-                      {emotions.map(({ name, icon: Icon }) => (
+                      {emotions.map(({ name, icon: Icon, colors }) => (
                         <Card
                           key={name}
                           onClick={() => field.onChange(name)}
                           className={cn(
                             "cursor-pointer transition-all duration-200 hover:shadow-xl hover:-translate-y-1",
+                            "border-border hover:border-primary/50",
                             field.value === name 
-                              ? "bg-primary/20 border-primary ring-2 ring-primary shadow-lg" 
-                              : "border-border hover:border-primary/50"
+                              ? `${colors} ring-2 shadow-lg`
+                              : "border-border"
                           )}
                         >
                           <div className="p-4 flex flex-col items-center justify-center">
                             <Icon className="w-8 h-8 mb-2" strokeWidth={1.5} />
-                            <span className="text-sm font-medium">{name}</span>
+                            <span className={cn(
+                              "text-sm font-medium",
+                               field.value === name ? "" : "text-muted-foreground"
+                            )}>{name}</span>
                           </div>
                         </Card>
                       ))}
