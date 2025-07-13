@@ -34,12 +34,14 @@ export type GenerateMicroSuggestionsInput = z.infer<
 >;
 
 const GenerateMicroSuggestionsOutputSchema = z.object({
-  reflection: z.string().describe("A gentle, reflective paragraph acknowledging the user's feelings."),
-  microSuggestions: z
+  acknowledgment: z.string().describe("A 2-3 line empathetic mirroring of what the user is feeling."),
+  emotionalInsight: z.string().describe("A 3-5 line gentle, non-judgmental insight into a possible reason for their emotion."),
+  personalizedSuggestions: z
     .array(z.string())
     .describe(
-      'A list of 1-2 personalized and actionable micro-suggestions for the student to improve their mental wellbeing.'
+      'A list of 3-5 small, realistic, and supportive actions the user can take.'
     ),
+  encouragement: z.string().describe("A 1-2 line closing message of empowerment and hope."),
 });
 export type GenerateMicroSuggestionsOutput = z.infer<
   typeof GenerateMicroSuggestionsOutputSchema
@@ -48,29 +50,46 @@ export type GenerateMicroSuggestionsOutput = z.infer<
 export async function generateMicroSuggestions(
   input: GenerateMicroSuggestionsInput
 ): Promise<GenerateMicroSuggestionsOutput> {
-  return generateMicroSuggestionsFlow(input);
+  // Map the output from the flow to the new structure for the frontend
+  const flowResult = await generateMicroSuggestionsFlow(input);
+  return {
+      acknowledgment: flowResult.acknowledgment,
+      emotionalInsight: flowResult.emotionalInsight,
+      personalizedSuggestions: flowResult.personalizedSuggestions,
+      encouragement: flowResult.encouragement,
+  };
 }
 
 const prompt = ai.definePrompt({
   name: 'generateMicroSuggestionsPrompt',
   input: {schema: GenerateMicroSuggestionsInputSchema},
   output: {schema: GenerateMicroSuggestionsOutputSchema},
-  prompt: `You are a supportive mental health companion for college students. A student has shared how they are feeling.
+  prompt: `You are a compassionate, emotionally intelligent AI trained to support college students with their mental health. A user has just shared their emotional check-in. Your goal is to not only reflect their emotion but help them work through it with a supportive and detailed response.
 
-  Student's input:
+  The user's input:
   - Emotion: {{{emotion}}}
   - Intensity: {{{intensity}}}
   - Situation: "{{{situation}}}"
 
-  Your task is to respond in a gentle and supportive tone.
-  1.  First, write a short, reflective paragraph that acknowledges their feelings and validates their experience.
-  2.  Then, suggest 1-2 very small, realistic, and actionable steps they could take. Examples: drinking a glass of water, stretching for 2 minutes, writing down one sentence about their day.
+  Please generate a response that contains the following 4 parts, using a warm, conversational, and non-judgmental tone.
+
+  1. Acknowledgment (2–3 lines):
+  Empathetically mirror what they’re feeling. Show you understand. Use a comforting tone.
+
+  2. Emotional Insight (3–5 lines):
+  Gently offer a possible reason for this emotion or thought pattern. Help the user understand themselves better. Keep it human and non-judgmental.
+
+  3. Personalized Suggestions (3–5 bullet points):
+  Provide small, realistic, and deeply supportive actions the user can take now or today. These can be journaling prompts, mental reframes, breathing patterns, habits, or micro-routines.
+
+  4. Encouragement (1–2 lines):
+  Close with a message of empowerment — a reminder that change is possible and they are not alone.
 
   {{#if campusSupportServices}}
-  If it feels appropriate, you can also mention the campus resources they provided: {{{campusSupportServices}}}
+  If it feels natural and appropriate, you can gently weave in a mention of the campus resources available: {{{campusSupportServices}}}
   {{/if}}
 
-  Keep the entire response gentle, non-clinical, and encouraging.
+  Keep the language beginner-friendly, safe, and hopeful.
 `,
 });
 

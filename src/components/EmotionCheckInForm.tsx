@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useRouter } from "next/navigation";
@@ -78,7 +78,7 @@ export default function EmotionCheckInForm() {
         campusSupportServices: values.includeCampusResources ? values.campusSupportServices : undefined,
       });
 
-      if (result && result.microSuggestions) {
+      if (result && result.personalizedSuggestions) {
         const encodedSuggestions = encodeURIComponent(JSON.stringify(result));
         router.push(`/suggestions?suggestions=${encodedSuggestions}`);
       } else {
