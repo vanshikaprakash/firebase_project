@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./ThemeToggle";
-import { useAuth } from "@/contexts/AuthContext";
 import React from "react";
 
 const LeafIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -9,21 +8,6 @@ const LeafIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <path d="M11 20A7 7 0 0 1 4 13H2a10 10 0 0 0 10 10zM2 13a10 10 0 0 1 10-10 10 10 0 0 1 10 10h-2a7 7 0 0 0-7-7 7 7 0 0 0-7 7z" />
   </svg>
 )
-
-function AuthButton() {
-  const { user, signInWithGoogle, logOut, isFirebaseConfigured } = useAuth();
-  
-  if (!isFirebaseConfigured) {
-    return null;
-  }
-
-  if (user) {
-    return <Button onClick={logOut} variant="outline">Logout</Button>
-  }
-
-  return <Button onClick={signInWithGoogle}>Login</Button>
-}
-
 
 export default function Header() {
   
@@ -58,7 +42,6 @@ export default function Header() {
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <ThemeToggle />
-          <AuthButton />
         </div>
       </div>
     </header>
