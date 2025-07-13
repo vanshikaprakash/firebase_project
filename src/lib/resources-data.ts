@@ -1,5 +1,5 @@
 
-import { Brain, Coffee, Smartphone, Moon, HeartHandshake, type LucideIcon } from 'lucide-react';
+import { Brain, Coffee, Smartphone, Moon, HeartHandshake, Zap, Wind, BookOpen, ExternalLink, type LucideIcon } from 'lucide-react';
 
 export type ResourceCategory = "Focus & Productivity" | "Emotional Well-being" | "Digital Detox" | "Sleep & Rest" | "Crisis & Support" | "All";
 
@@ -91,4 +91,41 @@ export const resourcesData: Resource[] = [
            "Identify your 'why'. Connecting a task to your larger goals can increase motivation."
         ]
     }
+];
+
+// --- New Data Structures ---
+
+// 1. Featured Toolkit
+export const featuredToolkit = {
+    title: "Exam Week Reset Kit",
+    tools: [
+        { name: "5-Minute Breathing Exercise", icon: Wind },
+        { name: "Timeboxing Planner", icon: Coffee },
+        { name: "Digital Detox Checklist", icon: Smartphone },
+        { name: "Quick Reflection Prompt", icon: BookOpen }
+    ]
+};
+
+// 2. Student-Sourced Advice
+export const studentAdvice = [
+    { text: "You don't have to have your whole future figured out. It's okay to just focus on the next right step.", category: "Anxiety" },
+    { text: "Handing in something 'good enough' is better than not handing in something 'perfect'.", category: "Burnout" },
+    { text: "I told my professor I was struggling and they were surprisingly understanding. It's worth a shot.", category: "Procrastination" },
+    { text: "Scheduling 'worry time' sounds silly, but it actually helps me not to stress all day.", category: "Anxiety" },
+];
+
+// 3. Helpful External Links
+export const externalLinks = [
+    { title: "NIMH", description: "The National Institute of Mental Health offers authoritative information on mental disorders.", url: "https://www.nimh.nih.gov/health" },
+    { title: "7 Cups", description: "Connect with caring listeners for free emotional support.", url: "https://www.7cups.com/" },
+    { title: "Calm", description: "A popular app for sleep, meditation, and relaxation.", url: "https://www.calm.com/" },
+    { title: "Notion Templates for Students", description: "Organize your academic life with these free templates.", url: "https://www.notion.so/templates/categories/students" }
+];
+
+// 4. Weekly Micro-Challenges
+export const weeklyChallenges = [
+    "This week’s challenge: Take a 5-minute walk before opening social media each morning.",
+    "This week’s challenge: Drink a full glass of water as soon as you wake up.",
+    "This week’s challenge: Write down one thing you're grateful for before bed.",
+    "This week’s challenge: Tidy your desk for 2 minutes at the end of each study session."
 ];
