@@ -31,7 +31,7 @@ export default function AboutPage() {
                 src="https://placehold.co/600x600.png"
                 width="600"
                 height="600"
-                alt="Philosophy"
+                alt="Abstract art with soothing, calm colors"
                 data-ai-hint="calm abstract"
                 className="mx-auto aspect-square overflow-hidden rounded-xl object-cover"
               />

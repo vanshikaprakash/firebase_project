@@ -36,8 +36,8 @@ export default function Home() {
                 src="https://placehold.co/600x400.png"
                 width="600"
                 height="400"
-                alt="Hero"
-                data-ai-hint="calm abstract"
+                alt="A person meditating peacefully"
+                data-ai-hint="wellness peaceful"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
               />
             </div>
