@@ -10,7 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Slider } from "@/components/ui/slider";
 import { Textarea } from "@/components/ui/textarea";
@@ -93,7 +93,7 @@ export default function EmotionCheckInForm() {
 
   return (
     <Card className="max-w-2xl mx-auto mt-10 shadow-lg">
-      <CardContent className="p-8">
+      <div className="p-8">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-12">
             <FormField
@@ -113,10 +113,10 @@ export default function EmotionCheckInForm() {
                             field.value === name ? "border-primary shadow-lg" : "border-border"
                           )}
                         >
-                          <CardContent className="p-4 pt-4 flex flex-col items-center justify-center">
+                          <div className="p-4 flex flex-col items-center justify-center">
                             <Icon className="w-8 h-8 mb-2" strokeWidth={1.5} />
                             <span className="text-sm font-medium">{name}</span>
-                          </CardContent>
+                          </div>
                         </Card>
                       ))}
                     </div>
@@ -220,7 +220,7 @@ export default function EmotionCheckInForm() {
             </Button>
           </form>
         </Form>
-      </CardContent>
+      </div>
     </Card>
   );
 }
