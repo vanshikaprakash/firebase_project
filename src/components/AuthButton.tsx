@@ -13,9 +13,19 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LogOut, Loader2 } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function AuthButton() {
   const { user, loading, logout, isFirebaseEnabled } = useAuth();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return <div className="h-8 w-8" />; // Placeholder to prevent layout shift
+  }
 
   if (loading) {
     return <Loader2 className="h-6 w-6 animate-spin" />;
