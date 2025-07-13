@@ -34,7 +34,7 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="https://source.unsplash.com/random/600x400/?wellness,peaceful"
+                src="https://placehold.co/600x400.png"
                 width="600"
                 height="400"
                 alt="A person meditating peacefully"
