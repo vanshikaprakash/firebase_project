@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ReflectionWall from "@/components/ReflectionWall";
 
-export default function ReflectionsPage() {
+export default function CommunityPage() {
     return (
         <div className="flex flex-col min-h-screen">
             <Header />

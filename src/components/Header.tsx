@@ -24,10 +24,16 @@ export default function Header() {
               Check-in
             </Link>
             <Link
-              href="/reflections"
+              href="/community"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
-              Reflections
+              Community
+            </Link>
+             <Link
+              href="/about"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              About
             </Link>
           </nav>
         </div>

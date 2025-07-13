@@ -59,9 +59,9 @@ export default function SuggestionsView() {
                     <Link href="/check-in">Start a New Check-in</Link>
                  </Button>
                  <Button asChild variant="outline" size="lg" className="w-full md:w-auto">
-                    <Link href="/reflections">
+                    <Link href="/community">
                         <Share2 className="mr-2 h-4 w-4" />
-                        Go to Reflection Wall
+                        Go to Community Wall
                     </Link>
                  </Button>
             </div>
