@@ -28,28 +28,28 @@ export default function Header() {
             <MindBloomIcon className="h-6 w-6 text-primary" />
             <span className="font-bold sm:inline-block">MindBloom</span>
           </Link>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-2 text-sm font-medium">
             <Link
               href="/check-in"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
+              className="transition-colors hover:text-foreground text-foreground/60 rounded-md px-3 py-2 hover:bg-primary/10"
             >
               Check-in
             </Link>
             <Link
               href="/resources"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
+              className="transition-colors hover:text-foreground text-foreground/60 rounded-md px-3 py-2 hover:bg-primary/10"
             >
               Resources
             </Link>
             <Link
               href="/forum"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
+              className="transition-colors hover:text-foreground text-foreground/60 rounded-md px-3 py-2 hover:bg-primary/10"
             >
               Forum
             </Link>
              <Link
               href="/about"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
+              className="transition-colors hover:text-foreground text-foreground/60 rounded-md px-3 py-2 hover:bg-primary/10"
             >
               About
             </Link>
