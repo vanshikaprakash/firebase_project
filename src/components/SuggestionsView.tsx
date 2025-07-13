@@ -11,16 +11,16 @@ export default function SuggestionsView() {
     const router = useRouter();
     const suggestionsJSON = searchParams.get('suggestions');
     
-    let suggestions: string[] = [];
+    let response: { reflection: string, microSuggestions: string[] } | null = null;
     if (suggestionsJSON) {
         try {
-            suggestions = JSON.parse(suggestionsJSON);
+            response = JSON.parse(suggestionsJSON);
         } catch (e) {
             console.error("Failed to parse suggestions:", e);
         }
     }
 
-    if (!suggestions || suggestions.length === 0) {
+    if (!response || !response.microSuggestions || response.microSuggestions.length === 0) {
         return (
             <div className="container py-12 md:py-24 text-center">
                  <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl font-headline">No suggestions found.</h1>
@@ -34,17 +34,19 @@ export default function SuggestionsView() {
         )
     }
 
+    const { reflection, microSuggestions } = response;
+
     return (
         <div className="container py-12 md:py-24">
             <div className="flex flex-col items-center space-y-4 text-center">
                 <Lightbulb className="w-12 h-12 text-primary"/>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Your Personalized Micro-Suggestions</h1>
                 <p className="max-w-[700px] text-muted-foreground md:text-xl">
-                    Here are a few small, actionable steps you can take right now. Remember to be kind to yourself.
+                    {reflection}
                 </p>
             </div>
             <div className="max-w-2xl mx-auto mt-10 space-y-4">
-                {suggestions.map((suggestion, index) => (
+                {microSuggestions.map((suggestion, index) => (
                     <Card key={index} className="bg-accent/20">
                         <CardContent className="p-6 flex items-start space-x-4">
                            <CheckCircle className="w-6 h-6 text-teal-500 mt-1 shrink-0" />

@@ -34,10 +34,11 @@ export type GenerateMicroSuggestionsInput = z.infer<
 >;
 
 const GenerateMicroSuggestionsOutputSchema = z.object({
+  reflection: z.string().describe("A gentle, reflective paragraph acknowledging the user's feelings."),
   microSuggestions: z
     .array(z.string())
     .describe(
-      'A list of personalized and actionable micro-suggestions for the student to improve their mental wellbeing.'
+      'A list of 1-2 personalized and actionable micro-suggestions for the student to improve their mental wellbeing.'
     ),
 });
 export type GenerateMicroSuggestionsOutput = z.infer<
@@ -54,20 +55,22 @@ const prompt = ai.definePrompt({
   name: 'generateMicroSuggestionsPrompt',
   input: {schema: GenerateMicroSuggestionsInputSchema},
   output: {schema: GenerateMicroSuggestionsOutputSchema},
-  prompt: `You are a mental health support chatbot designed to help college students.
+  prompt: `You are a supportive mental health companion for college students. A student has shared how they are feeling.
 
-  Based on the student's emotion check-in, provide a list of 3 personalized and actionable micro-suggestions to improve their mental wellbeing.
+  Student's input:
+  - Emotion: {{{emotion}}}
+  - Intensity: {{{intensity}}}
+  - Situation: "{{{situation}}}"
 
-  Emotion: {{{emotion}}}
-  Intensity: {{{intensity}}}
-  Situation: {{{situation}}}
+  Your task is to respond in a gentle and supportive tone.
+  1.  First, write a short, reflective paragraph that acknowledges their feelings and validates their experience.
+  2.  Then, suggest 1-2 very small, realistic, and actionable steps they could take. Examples: drinking a glass of water, stretching for 2 minutes, writing down one sentence about their day.
 
   {{#if campusSupportServices}}
-  In addition to suggestions, include relevant campus support services:
-  {{{campusSupportServices}}}
+  If it feels appropriate, you can also mention the campus resources they provided: {{{campusSupportServices}}}
   {{/if}}
 
-  Ensure the suggestions are very small and easy to accomplish. Focus on actionable steps the student can take immediately.
+  Keep the entire response gentle, non-clinical, and encouraging.
 `,
 });
 

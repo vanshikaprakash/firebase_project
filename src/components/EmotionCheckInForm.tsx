@@ -78,7 +78,7 @@ export default function EmotionCheckInForm() {
       });
 
       if (result && result.microSuggestions) {
-        const encodedSuggestions = encodeURIComponent(JSON.stringify(result.microSuggestions));
+        const encodedSuggestions = encodeURIComponent(JSON.stringify(result));
         router.push(`/suggestions?suggestions=${encodedSuggestions}`);
       } else {
         toast({ variant: "destructive", title: "Error", description: "Couldn't generate suggestions. Please try again." });
