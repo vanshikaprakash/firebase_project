@@ -137,7 +137,7 @@ export default function ForumHome() {
 
             <div className="space-y-4 max-w-3xl mx-auto">
                 {threads.map(thread => (
-                     <Card key={thread.id} className="hover:bg-muted/50 transition-colors shadow-sm hover:shadow-md">
+                     <Card key={thread.id} className="transition-all shadow-sm hover:shadow-xl hover:bg-secondary/30">
                         <Link href={`/forum/${thread.id}`} className="block">
                             <CardHeader>
                                 <CardTitle className="text-lg">{thread.title}</CardTitle>

@@ -128,8 +128,8 @@ export default function ResourcesPage() {
                                 variant={filter === category ? 'default' : 'outline'}
                                 onClick={() => setFilter(category)}
                                 className={cn(
-                                    "rounded-full transition-shadow",
-                                    filter === category ? 'shadow-md' : 'shadow-sm hover:shadow-md'
+                                    "rounded-full transition-all",
+                                    filter === category ? 'shadow-md scale-105' : 'shadow-sm hover:shadow-lg hover:scale-105'
                                 )}
                             >
                                 {category}
@@ -158,7 +158,7 @@ export default function ResourcesPage() {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
                        {externalLinks.map((link) => (
-                           <Card key={link.title} className="bg-background hover:bg-secondary/40 transition-colors shadow-sm hover:shadow-md">
+                           <Card key={link.title} className="bg-background hover:bg-secondary/40 transition-all shadow-sm hover:shadow-xl hover:-translate-y-1">
                                 <CardContent className="p-4">
                                     <Link href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between">
                                         <div>

@@ -56,7 +56,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 mt-12">
-              <Card className="shadow-md hover:shadow-lg transition-shadow border-none bg-secondary/30">
+              <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none bg-secondary/30">
                 <CardHeader>
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
                     <Heart className="h-6 w-6 text-primary-foreground" />
@@ -67,7 +67,7 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground">Share how you're feeling. Our simple flow makes it easy to identify and articulate your emotions.</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-md hover:shadow-lg transition-shadow border-none bg-secondary/30">
+              <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none bg-secondary/30">
                 <CardHeader>
                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
                     <BrainCircuit className="h-6 w-6 text-primary-foreground" />
@@ -78,7 +78,7 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground">Receive personalized, AI-powered micro-suggestions to help you navigate your feelings.</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-md hover:shadow-lg transition-shadow border-none bg-secondary/30">
+              <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none bg-secondary/30">
                 <CardHeader>
                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
                     <Users className="h-6 w-6 text-primary-foreground" />
@@ -106,7 +106,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="grid gap-6">
-                    <Card className="shadow-md hover:shadow-lg transition-shadow border-none">
+                    <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none">
                         <CardHeader className="flex flex-row items-center gap-4">
                             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
                                 <Heart className="h-6 w-6 text-primary-foreground" />
@@ -117,7 +117,7 @@ export default function Home() {
                             </div>
                         </CardHeader>
                     </Card>
-                     <Card className="shadow-md hover:shadow-lg transition-shadow border-none">
+                     <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none">
                         <CardHeader className="flex flex-row items-center gap-4">
                             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
                                 <BrainCircuit className="h-6 w-6 text-primary-foreground" />
@@ -128,7 +128,7 @@ export default function Home() {
                             </div>
                         </CardHeader>
                     </Card>
-                    <Card className="shadow-md hover:shadow-lg transition-shadow border-none">
+                    <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none">
                         <CardHeader className="flex flex-row items-center gap-4">
                             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
                                 <Users className="h-6 w-6 text-primary-foreground" />
