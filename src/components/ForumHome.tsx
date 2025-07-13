@@ -81,14 +81,14 @@ export default function ForumHome() {
             <Alert className="my-8 bg-primary/10 border-primary/20 max-w-3xl mx-auto">
                 <AlertTitle className="font-headline">A Note on Community Safety</AlertTitle>
                 <AlertDescription>
-                   This is a space for sharing and support. For your safety and the safety of others, posts containing sensitive content may be flagged and not published. If you need immediate support, please contact a crisis hotline or mental health professional.
+                   This is a space for sharing and support. For your safety and the safety of others, posts containing sensitive content may be flagged and not published. If you need immediate support, please contact a crisis hotline or a mental health professional.
                 </AlertDescription>
             </Alert>
 
             <div className="text-center mb-8">
                  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                     <DialogTrigger asChild>
-                        <Button size="lg">
+                        <Button size="lg" className="shadow-md hover:shadow-lg transition-shadow">
                             <MessageSquarePlus className="mr-2 h-4 w-4" />
                             Start a New Discussion
                         </Button>
@@ -137,7 +137,7 @@ export default function ForumHome() {
 
             <div className="space-y-4 max-w-3xl mx-auto">
                 {threads.map(thread => (
-                     <Card key={thread.id} className="hover:bg-muted/50 transition-colors">
+                     <Card key={thread.id} className="hover:bg-muted/50 transition-colors shadow-sm hover:shadow-md">
                         <Link href={`/forum/${thread.id}`} className="block">
                             <CardHeader>
                                 <CardTitle className="text-lg">{thread.title}</CardTitle>

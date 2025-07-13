@@ -133,7 +133,7 @@ export default function Home() {
                                 <Users className="h-6 w-6 text-primary-foreground" />
                             </div>
                             <div>
-                                <CardTitle>Community Wall</CardTitle>
+                                <CardTitle>Community Forum</CardTitle>
                                 <CardDescription>Share and connect with others, anonymously.</CardDescription>
                             </div>
                         </CardHeader>

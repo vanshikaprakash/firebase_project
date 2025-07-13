@@ -114,7 +114,7 @@ export default function ThreadView({ threadId }: { threadId: string }) {
                 <h2 className="text-2xl font-bold font-headline">Replies ({thread.replies.length})</h2>
                 {thread.replies.length > 0 ? (
                     thread.replies.map(reply => (
-                         <Card key={reply.id} className="bg-background/50">
+                         <Card key={reply.id} className="bg-background/50 shadow-sm">
                             <CardContent className="p-4">
                                <p className="text-sm text-foreground/90">{reply.body}</p>
                                <p className="text-xs text-muted-foreground mt-2">

@@ -14,7 +14,7 @@ export default function ResourceCard({ resource }: ResourceCardProps) {
     const { icon: Icon, title, summary, details } = resource;
 
     return (
-        <Card className="flex flex-col">
+        <Card className="flex flex-col shadow-md hover:shadow-lg transition-shadow">
             <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value={`item-${resource.id}`} className="border-b-0">
                     <CardHeader className="items-center text-center p-6 pb-2">

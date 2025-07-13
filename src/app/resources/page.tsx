@@ -57,7 +57,7 @@ export default function ResourcesPage() {
                             </CardHeader>
                             <CardContent className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                                 {featuredToolkit.tools.map(tool => (
-                                    <div key={tool.name} className="flex flex-col items-center gap-2">
+                                    <div key={tool.name} className="flex flex-col items-center gap-2 p-2 rounded-lg transition-colors hover:bg-primary/5">
                                         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                                             <tool.icon className="h-6 w-6 text-primary" />
                                         </div>
@@ -83,7 +83,7 @@ export default function ResourcesPage() {
                                     <Card className="bg-background/70">
                                         <CardContent className="flex flex-col items-center justify-center p-6 text-center">
                                             <p className="font-medium mb-4">{challenge}</p>
-                                            <Button size="sm">
+                                            <Button size="sm" className="shadow hover:shadow-md transition-shadow">
                                                 <ShieldCheck className="mr-2"/> Mark as Done
                                             </Button>
                                         </CardContent>
@@ -128,8 +128,8 @@ export default function ResourcesPage() {
                                 variant={filter === category ? 'default' : 'outline'}
                                 onClick={() => setFilter(category)}
                                 className={cn(
-                                    "rounded-full",
-                                    filter === category && 'shadow-md'
+                                    "rounded-full transition-shadow",
+                                    filter === category ? 'shadow-md' : 'shadow-sm hover:shadow-md'
                                 )}
                             >
                                 {category}
@@ -158,7 +158,7 @@ export default function ResourcesPage() {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
                        {externalLinks.map((link) => (
-                           <Card key={link.title} className="bg-background hover:bg-background/80 transition-colors">
+                           <Card key={link.title} className="bg-background hover:bg-secondary/40 transition-colors shadow-sm hover:shadow-md">
                                 <CardContent className="p-4">
                                     <Link href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between">
                                         <div>
