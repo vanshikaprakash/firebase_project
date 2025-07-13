@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -15,6 +16,7 @@ import { Checkbox } from './ui/checkbox';
 import { MessageSquarePlus, Heart, Users } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
+import Link from 'next/link';
 
 const reflectionSchema = z.object({
   text: z.string().min(10, 'Reflection must be at least 10 characters.').max(500, 'Reflection must be under 500 characters.'),
@@ -41,11 +43,11 @@ function ReflectionCard({ reflection, onReact }: { reflection: Reflection, onRea
                 </div>
                 <div className="flex items-center gap-2">
                     <Button variant="ghost" size="sm" className="flex items-center gap-1" onClick={() => onReact(reflection.id, 'feelThis')}>
-                        <Heart className="w-4 h-4 text-blue-400" />
+                        <Heart className="w-4 h-4 text-primary" />
                         <span>{reflection.reactions.feelThis}</span>
                     </Button>
                     <Button variant="ghost" size="sm" className="flex items-center gap-1" onClick={() => onReact(reflection.id, 'notAlone')}>
-                        <Users className="w-4 h-4 text-green-400" />
+                        <Users className="w-4 h-4 text-accent-foreground" />
                         <span>{reflection.reactions.notAlone}</span>
                     </Button>
                 </div>
@@ -107,65 +109,12 @@ export default function ReflectionWall() {
 
     return (
         <div className="mt-12">
-            <Alert className="mb-8 bg-primary/10 border-primary/20">
-                <AlertTitle className="font-headline">A Note on Community Safety</AlertTitle>
+            <Alert variant="destructive" className="mb-8">
+                 <AlertTitle className="font-headline">The Community Wall is now the Forum!</AlertTitle>
                 <AlertDescription>
-                   This is a space for sharing and support. For your safety and the safety of others, posts containing sensitive content may be flagged and not published. If you need immediate support, please contact a crisis hotline or mental health professional.
+                   To better support discussions, this page is being replaced by our new <Link href="/forum" className="font-bold underline">Community Forum</Link>. Please head there to share and connect!
                 </AlertDescription>
             </Alert>
-            <div className="text-center mb-8">
-                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                    <DialogTrigger asChild>
-                        <Button size="lg">
-                            <MessageSquarePlus className="mr-2 h-4 w-4" />
-                            Add Your Reflection
-                        </Button>
-                    </DialogTrigger>
-                    <DialogContent>
-                        <DialogHeader>
-                            <DialogTitle>Share Your Thoughts</DialogTitle>
-                            <DialogDescription>
-                                Your voice matters. Share your experience with the community.
-                            </DialogDescription>
-                        </DialogHeader>
-                        <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                                <FormField
-                                    control={form.control}
-                                    name="text"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Your Reflection</FormLabel>
-                                            <FormControl>
-                                                <Textarea placeholder="Share what's on your mind..." {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="isAnonymous"
-                                    render={({ field }) => (
-                                        <FormItem className="flex flex-row items-center space-x-3 space-y-0">
-                                            <FormControl>
-                                                <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-                                            </FormControl>
-                                            <FormLabel>Post anonymously</FormLabel>
-                                        </FormItem>
-                                    )}
-                                />
-                                <Button type="submit">Share Reflection</Button>
-                            </form>
-                        </Form>
-                    </DialogContent>
-                </Dialog>
-            </div>
-            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                {reflections.map(reflection => (
-                    <ReflectionCard key={reflection.id} reflection={reflection} onReact={handleReact} />
-                ))}
-            </div>
         </div>
     );
 }

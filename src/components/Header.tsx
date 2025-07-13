@@ -42,10 +42,10 @@ export default function Header() {
               Resources
             </Link>
             <Link
-              href="/community"
+              href="/forum"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
-              Community
+              Forum
             </Link>
              <Link
               href="/about"

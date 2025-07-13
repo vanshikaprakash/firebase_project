@@ -1,6 +1,32 @@
+
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import ReflectionWall from "@/components/ReflectionWall";
+import ForumHome from "@/components/ForumHome";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+
+function ForumSkeleton() {
+    return (
+        <div className="space-y-4">
+            <div className="flex justify-between items-center">
+                <Skeleton className="h-10 w-48" />
+                <Skeleton className="h-10 w-32" />
+            </div>
+            <div className="space-y-4">
+                {[...Array(5)].map((_, i) => (
+                    <div key={i} className="p-4 border rounded-lg">
+                        <Skeleton className="h-6 w-3/4 mb-2" />
+                        <div className="flex items-center gap-4">
+                            <Skeleton className="h-4 w-24" />
+                            <Skeleton className="h-4 w-24" />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
+
 
 export default function CommunityPage() {
     return (
@@ -8,13 +34,9 @@ export default function CommunityPage() {
             <Header />
             <main className="flex-1">
                 <div className="container py-12 md:py-24">
-                    <div className="flex flex-col items-center space-y-4 text-center">
-                        <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Community Reflection Wall</h1>
-                        <p className="max-w-[700px] text-muted-foreground md:text-xl">
-                            A space to share and connect. You are not alone.
-                        </p>
-                    </div>
-                    <ReflectionWall />
+                    <Suspense fallback={<ForumSkeleton />}>
+                        <ForumHome />
+                    </Suspense>
                 </div>
             </main>
             <Footer />

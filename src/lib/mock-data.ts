@@ -1,3 +1,10 @@
+
+// This type is shared with the new forum feature
+export type Reaction = {
+    feelThis: number;
+    notAlone: number;
+};
+
 export type Reflection = {
   id: number;
   author: string;
@@ -5,10 +12,7 @@ export type Reflection = {
   text: string;
   isAnonymous: boolean;
   timestamp: string;
-  reactions: {
-    feelThis: number;
-    notAlone: number;
-  };
+  reactions: Reaction;
 };
 
 export const mockReflections: Reflection[] = [
