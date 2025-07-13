@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import React from "react";
+import AuthButton from "./AuthButton";
 
 const MindBloomIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg {...props} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,6 +43,7 @@ export default function Header() {
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <ThemeToggle />
+          <AuthButton />
         </div>
       </div>
     </header>
