@@ -28,7 +28,7 @@ export default function AboutPage() {
                 </p>
               </div>
               <Image
-                src="https://placehold.co/600x600.png"
+                src="https://source.unsplash.com/random/600x600/?calm,abstract"
                 width="600"
                 height="600"
                 alt="Abstract art with soothing, calm colors"
