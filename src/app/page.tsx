@@ -17,10 +17,10 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
-                    Find your calm with MindBloom
+                    Turn your thoughts into steps.
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    A safe space for college students to understand their emotions and find small, actionable steps towards mental well-being.
+                    MindBloom is a safe space for college students to understand their emotions and find small, actionable steps towards mental well-being.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
