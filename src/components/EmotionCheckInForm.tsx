@@ -113,7 +113,7 @@ export default function EmotionCheckInForm() {
                             field.value === name ? "border-primary shadow-lg" : "border-border"
                           )}
                         >
-                          <CardContent className="flex flex-col items-center justify-center p-4">
+                          <CardContent className="p-4 pt-4 flex flex-col items-center justify-center">
                             <Icon className="w-8 h-8 mb-2" strokeWidth={1.5} />
                             <span className="text-sm font-medium">{name}</span>
                           </CardContent>
