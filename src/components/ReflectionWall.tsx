@@ -12,8 +12,9 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
 import { Textarea } from './ui/textarea';
 import { Checkbox } from './ui/checkbox';
-import { MessageSquarePlus } from 'lucide-react';
+import { MessageSquarePlus, Heart, Users } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 
 const reflectionSchema = z.object({
   text: z.string().min(10, 'Reflection must be at least 10 characters.').max(500, 'Reflection must be under 500 characters.'),
@@ -22,7 +23,10 @@ const reflectionSchema = z.object({
 
 type ReflectionFormValues = z.infer<typeof reflectionSchema>;
 
-function ReflectionCard({ reflection }: { reflection: Reflection }) {
+// Simple keyword flagging list. In a real app, this would be more robust and managed on a server.
+const flaggedKeywords = ['suicide', 'self-harm', 'kill', 'abuse', 'assault'];
+
+function ReflectionCard({ reflection, onReact }: { reflection: Reflection, onReact: (id: number, reaction: 'feelThis' | 'notAlone') => void }) {
     return (
         <Card className="break-inside-avoid">
             <CardHeader>
@@ -31,8 +35,20 @@ function ReflectionCard({ reflection }: { reflection: Reflection }) {
             <CardContent>
                 <p className="text-sm text-foreground">{reflection.text}</p>
             </CardContent>
-            <CardFooter className="text-xs text-muted-foreground">
-                <p>{reflection.isAnonymous ? "Anonymous" : reflection.author} &middot; {reflection.timestamp}</p>
+            <CardFooter className="flex justify-between items-center text-xs text-muted-foreground">
+                <div>
+                  <p>{reflection.isAnonymous ? "Anonymous" : reflection.author} &middot; {reflection.timestamp}</p>
+                </div>
+                <div className="flex items-center gap-2">
+                    <Button variant="ghost" size="sm" className="flex items-center gap-1" onClick={() => onReact(reflection.id, 'feelThis')}>
+                        <Heart className="w-4 h-4 text-blue-400" />
+                        <span>{reflection.reactions.feelThis}</span>
+                    </Button>
+                    <Button variant="ghost" size="sm" className="flex items-center gap-1" onClick={() => onReact(reflection.id, 'notAlone')}>
+                        <Users className="w-4 h-4 text-green-400" />
+                        <span>{reflection.reactions.notAlone}</span>
+                    </Button>
+                </div>
             </CardFooter>
         </Card>
     );
@@ -51,7 +67,29 @@ export default function ReflectionWall() {
         },
     });
 
+    function handleReact(id: number, reaction: 'feelThis' | 'notAlone') {
+      setReflections(prev =>
+        prev.map(r => 
+          r.id === id ? { ...r, reactions: { ...r.reactions, [reaction]: r.reactions[reaction] + 1 } } : r
+        )
+      );
+    }
+    
+    function checkForFlaggedKeywords(text: string): boolean {
+        const lowerCaseText = text.toLowerCase();
+        return flaggedKeywords.some(keyword => lowerCaseText.includes(keyword));
+    }
+
     function onSubmit(values: ReflectionFormValues) {
+        if (checkForFlaggedKeywords(values.text)) {
+            toast({
+                variant: 'destructive',
+                title: 'Content Warning',
+                description: "Your message appears to contain sensitive content. If you are in crisis, please seek immediate help. This post will not be published.",
+            });
+            return;
+        }
+
         const newReflection: Reflection = {
             id: reflections.length + 1,
             author: 'You',
@@ -59,6 +97,7 @@ export default function ReflectionWall() {
             text: values.text,
             isAnonymous: values.isAnonymous,
             timestamp: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+            reactions: { feelThis: 0, notAlone: 0 },
         };
         setReflections(prev => [newReflection, ...prev]);
         form.reset();
@@ -68,6 +107,12 @@ export default function ReflectionWall() {
 
     return (
         <div className="mt-12">
+            <Alert className="mb-8 bg-primary/10 border-primary/20">
+                <AlertTitle className="font-headline">A Note on Community Safety</AlertTitle>
+                <AlertDescription>
+                   This is a space for sharing and support. For your safety and the safety of others, posts containing sensitive content may be flagged and not published. If you need immediate support, please contact a crisis hotline or mental health professional.
+                </AlertDescription>
+            </Alert>
             <div className="text-center mb-8">
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                     <DialogTrigger asChild>
@@ -118,7 +163,7 @@ export default function ReflectionWall() {
             </div>
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
                 {reflections.map(reflection => (
-                    <ReflectionCard key={reflection.id} reflection={reflection} />
+                    <ReflectionCard key={reflection.id} reflection={reflection} onReact={handleReact} />
                 ))}
             </div>
         </div>

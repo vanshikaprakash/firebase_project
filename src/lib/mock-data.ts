@@ -5,6 +5,10 @@ export type Reflection = {
   text: string;
   isAnonymous: boolean;
   timestamp: string;
+  reactions: {
+    feelThis: number;
+    notAlone: number;
+  };
 };
 
 export const mockReflections: Reflection[] = [
@@ -15,6 +19,7 @@ export const mockReflections: Reflection[] = [
     text: "Midterms are really getting to me. It feels like there's a mountain of work and not enough time. Trying to take it one day at a time.",
     isAnonymous: true,
     timestamp: "Oct 26",
+    reactions: { feelThis: 12, notAlone: 8 },
   },
   {
     id: 2,
@@ -23,6 +28,7 @@ export const mockReflections: Reflection[] = [
     text: "Took a walk around campus today without my phone. The autumn leaves were beautiful. It's the small moments that help.",
     isAnonymous: false,
     timestamp: "Oct 25",
+    reactions: { feelThis: 25, notAlone: 15 },
   },
   {
     id: 3,
@@ -31,6 +37,7 @@ export const mockReflections: Reflection[] = [
     text: "Senior year is scary. So much pressure to have it all figured out. Just wanted to put this out there in case anyone else feels the same.",
     isAnonymous: true,
     timestamp: "Oct 24",
+    reactions: { feelThis: 42, notAlone: 31 },
   },
   {
     id: 4,
@@ -39,6 +46,7 @@ export const mockReflections: Reflection[] = [
     text: "I finally finished a paper I've been procrastinating on for a week. It wasn't perfect, but it's done. Feeling proud of myself.",
     isAnonymous: true,
     timestamp: "Oct 23",
+    reactions: { feelThis: 30, notAlone: 18 },
   },
   {
     id: 5,
@@ -47,6 +55,7 @@ export const mockReflections: Reflection[] = [
     text: "First year away from home has been tougher than I expected. Some days are just hard. Hoping it gets easier.",
     isAnonymous: false,
     timestamp: "Oct 22",
+    reactions: { feelThis: 51, notAlone: 45 },
   },
   {
     id: 6,
@@ -55,5 +64,6 @@ export const mockReflections: Reflection[] = [
     text: "My study group was so supportive today. We all helped each other understand the material. Feeling grateful for good friends.",
     isAnonymous: true,
     timestamp: "Oct 21",
+    reactions: { feelThis: 18, notAlone: 7 },
   },
 ];
