@@ -7,20 +7,26 @@ import {
   User, 
   GoogleAuthProvider, 
   signInWithPopup,
-  signOut
+  signOut,
+  Auth
 } from 'firebase/auth';
-import { app } from '@/lib/firebase';
+import { app, isFirebaseConfigured } from '@/lib/firebase';
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
   signInWithGoogle: () => Promise<void>;
   logOut: () => Promise<void>;
+  isFirebaseConfigured: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const auth = getAuth(app);
+let auth: Auth | null = null;
+if (isFirebaseConfigured()) {
+  auth = getAuth(app);
+}
+
 const googleProvider = new GoogleAuthProvider();
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -28,6 +34,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!auth) {
+      setLoading(false);
+      return;
+    }
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
@@ -37,6 +47,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signInWithGoogle = async () => {
+    if (!auth) {
+      console.error("Firebase is not configured. Please add your credentials to the .env file.");
+      return;
+    }
     try {
       await signInWithPopup(auth, googleProvider);
     } catch (error) {
@@ -45,6 +59,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logOut = async () => {
+     if (!auth) {
+      console.error("Firebase is not configured.");
+      return;
+    }
     try {
       await signOut(auth);
     } catch (error) {
@@ -57,6 +75,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     loading,
     signInWithGoogle,
     logOut,
+    isFirebaseConfigured: isFirebaseConfigured()
   };
 
   return (

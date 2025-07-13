@@ -1,4 +1,4 @@
-import { initializeApp, getApps, getApp } from "firebase/app";
+import { initializeApp, getApps, getApp, type FirebaseApp } from "firebase/app";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -9,7 +9,21 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+// Function to check if Firebase config is provided
+export function isFirebaseConfigured() {
+    return !!firebaseConfig.apiKey;
+}
 
+// Initialize Firebase only if the config is available
+let app: FirebaseApp;
+if (isFirebaseConfigured()) {
+    app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+} else {
+    // Provide a dummy app or handle the unconfigured state appropriately.
+    // For this case, we won't initialize `app`, and other parts of the code
+    // will check `isFirebaseConfigured`.
+}
+
+
+// @ts-ignore
 export { app };

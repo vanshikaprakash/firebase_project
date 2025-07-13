@@ -11,8 +11,12 @@ const LeafIcon = (props: React.SVGProps<SVGSVGElement>) => (
 )
 
 function AuthButton() {
-  const { user, signInWithGoogle, logOut } = useAuth();
+  const { user, signInWithGoogle, logOut, isFirebaseConfigured } = useAuth();
   
+  if (!isFirebaseConfigured) {
+    return null;
+  }
+
   if (user) {
     return <Button onClick={logOut} variant="outline">Logout</Button>
   }
