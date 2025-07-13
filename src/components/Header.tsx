@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { ThemeToggle } from "./ThemeToggle";
+import { useAuth } from "@/contexts/AuthContext";
+import React from "react";
 
 const LeafIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -7,7 +10,19 @@ const LeafIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
+function AuthButton() {
+  const { user, signInWithGoogle, logOut } = useAuth();
+  
+  if (user) {
+    return <Button onClick={logOut} variant="outline">Logout</Button>
+  }
+
+  return <Button onClick={signInWithGoogle}>Login</Button>
+}
+
+
 export default function Header() {
+  
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
@@ -37,10 +52,9 @@ export default function Header() {
             </Link>
           </nav>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button asChild>
-             <Link href="/check-in">Get Started</Link>
-          </Button>
+        <div className="flex flex-1 items-center justify-end space-x-4">
+          <ThemeToggle />
+          <AuthButton />
         </div>
       </div>
     </header>
