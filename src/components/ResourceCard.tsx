@@ -25,7 +25,7 @@ export default function ResourceCard({ resource }: ResourceCardProps) {
                     </CardHeader>
 
                     <div className="px-6 pb-4">
-                        <AccordionTrigger asChild>
+                        <AccordionTrigger>
                            <Button variant="outline" className="w-full">
                                 Read More
                            </Button>
