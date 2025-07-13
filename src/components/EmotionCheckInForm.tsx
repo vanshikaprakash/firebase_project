@@ -110,8 +110,10 @@ export default function EmotionCheckInForm() {
                           key={name}
                           onClick={() => field.onChange(name)}
                           className={cn(
-                            "cursor-pointer transition-all duration-200 hover:shadow-xl hover:scale-105 hover:border-primary",
-                            field.value === name ? "border-primary shadow-lg scale-105" : "border-border"
+                            "cursor-pointer transition-all duration-200 hover:shadow-xl hover:-translate-y-1",
+                            field.value === name 
+                              ? "bg-primary/20 border-primary ring-2 ring-primary shadow-lg" 
+                              : "border-border hover:border-primary/50"
                           )}
                         >
                           <div className="p-4 flex flex-col items-center justify-center">
