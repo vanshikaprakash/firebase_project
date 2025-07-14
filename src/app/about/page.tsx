@@ -14,11 +14,14 @@ export default function AboutPage() {
           <div className="container px-4 md:px-6">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2 text-center md:text-left">
-                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Our Philosophy</h1>
-                   <p className="max-w-[600px] text-muted-foreground md:text-xl mx-auto md:mx-0">
-                    A gentle approach to mental wellness, designed for students.
-                   </p>
+                <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-left">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-2">
+                      <Lightbulb className="h-6 w-6 text-primary-foreground" />
+                    </div>
+                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Our Philosophy</h1>
+                    <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                      A gentle approach to mental wellness, designed for students.
+                    </p>
                 </div>
                 <p className="max-w-[600px] text-muted-foreground text-center md:text-left">
                     College is a time of immense growth, but it can also be a period of significant stress and emotional challenge. We believe that mental wellness isn't about achieving a constant state of happiness, but about building the resilience to navigate the ups and downs of life.
