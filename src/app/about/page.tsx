@@ -3,28 +3,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lightbulb, Heart, Users } from "lucide-react";
+import Image from "next/image";
 import React from "react";
-
-const PhilosophyIllustration = () => (
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="400" height="400">
-      <defs>
-          <radialGradient id="grad_about" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-            <stop offset="0%" style={{stopColor: '#FFFFFF', stopOpacity: 0.7}}/>
-            <stop offset="100%" style={{stopColor: '#D1C4E9', stopOpacity: 0.3}}/>
-          </radialGradient>
-      </defs>
-      <g opacity="0.6">
-        <path fill="url(#grad_about)" d="M54.9,-63.9C69.3,-54,77.9,-37.1,79.5,-20.1C81.1,-3.1,75.7,14,66.8,29.3C57.9,44.6,45.5,58.1,30.7,66.9C15.9,75.7,-1.4,79.8,-18.8,76.1C-36.2,72.4,-53.8,60.9,-64.7,46.4C-75.6,31.9,-79.8,14.5,-78.4,-3.2C-77,-20.9,-70,-38.9,-57.6,-49.9C-45.2,-60.9,-27.4,-65,-9.7,-64.1C8,-63.2,26.5,-57.2,39.3,-53.2C52.1,-49.2,54.9,-63.9,54.9,-63.9" transform="translate(100 100)" />
-      </g>
-      <g transform="translate(100 100) scale(0.7)">
-        <path d="M-50,0 C-50,-50 50,-50 50,0 C 50,50 -50,50 -50,0" fill="#A7FFEB" opacity="0.5"/>
-        <path d="M-30,0 C-30,-30 30,-30 30,0 C 30,30 -30,30 -30,0" fill="#FFFFFF" />
-        <path d="M-20,0 a10,10 0 0,1 40,0" stroke="#D1C4E9" strokeWidth="4" fill="none" strokeLinecap="round"/>
-        <text x="0" y="5" fontFamily="sans-serif" fontSize="14" fill="#333" textAnchor="middle">Empathy</text>
-      </g>
-    </svg>
-);
-
 
 export default function AboutPage() {
   return (
@@ -48,8 +28,14 @@ export default function AboutPage() {
                     MindBloom was created to be a safe, non-judgmental space where you can pause, connect with your feelings, and find small, actionable steps to move forward. We're not here to replace professional therapy, but to offer a first step, a daily companion, and a reminder that you're not alone.
                 </p>
               </div>
-              <div className="w-full max-w-md mx-auto object-contain rounded-xl">
-                <PhilosophyIllustration />
+              <div className="w-full max-w-md mx-auto flex items-center justify-center">
+                 <Image 
+                    src="https://freepik.cdnpk.net/img/story-sets/emotional-intelligence/amico-7572.png"
+                    alt="Illustration showing a person watering a plant growing out of a head, symbolizing growth"
+                    width={400}
+                    height={400}
+                    className="w-full h-auto max-w-md mx-auto rounded-xl object-contain"
+                 />
               </div>
             </div>
           </div>

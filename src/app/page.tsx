@@ -9,38 +9,7 @@ import { ArrowRight, BrainCircuit, Heart, Users, ChevronUp } from 'lucide-react'
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { cn } from '@/lib/utils';
-
-const HeroIllustration = () => (
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="400" height="400">
-      <defs>
-        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{stopColor: '#D1C4E9', stopOpacity: 1}} />
-          <stop offset="100%" style={{stopColor: '#A7FFEB', stopOpacity: 1}} />
-        </linearGradient>
-        <filter id="softGlow" x="-0.5" y="-0.5" width="2" height="2">
-            <feGaussianBlur stdDeviation="5" result="coloredBlur" />
-            <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-            </feMerge>
-        </filter>
-      </defs>
-      <g opacity="0.4" filter="url(#softGlow)">
-        <path fill="#F5F5F5" d="M60.1,-58.8C75.6,-45.3,84.2,-22.7,84.1,-0.3C84.1,22.1,75.4,44.2,60.2,58.8C45,73.4,22.5,80.5,-1.3,81.8C-25.1,83,-50.2,78.4,-64,65.1C-77.8,51.8,-80.3,29.9,-77.3,10.2C-74.3,-9.5,-65.8,-27,-52.8,-40.4C-39.8,-53.8,-22.3,-63.1,0.5,-63.6C23.3,-64.1,44.6,-56.3,60.1,-58.8Z" transform="translate(100 100)" />
-      </g>
-      <g transform="translate(100 100) scale(0.8)">
-        <path d="M0,70 Q-70,0 0,-70 Q70,0 0,70" fill="url(#grad1)" opacity="0.3" />
-        <path d="M-20,0 a20,20 0 1,0 40,0 a20,20 0 1,0 -40,0" fill="#FFFFFF" />
-        <path d="M-10, -50 Q0,-60 10,-50" stroke="#D1C4E9" strokeWidth="3" fill="none" strokeLinecap="round" />
-        <path d="M-30, -30 Q0,-40 30,-30" stroke="#A7FFEB" strokeWidth="3" fill="none" strokeLinecap="round" />
-        <path d="M-40, 0 Q0,-15 40,0" stroke="#D1C4E9" strokeWidth="4" fill="none" strokeLinecap="round" />
-        <path d="M-30, 30 Q0,15 30,30" stroke="#A7FFEB" strokeWidth="3" fill="none" strokeLinecap="round" />
-        <circle cx="0" cy="0" r="10" fill="white" />
-        <path d="M-15,60 C-25,20 25,20 15,60 Q0,75 -15,60" fill="#FFFFFF" opacity="0.9"/>
-      </g>
-    </svg>
-);
-
+import Image from 'next/image';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -92,8 +61,14 @@ export default function Home() {
                 </Button>
                 </div>
               </div>
-              <div className="w-full max-w-md mx-auto object-contain rounded-xl">
-                 <HeroIllustration />
+              <div className="w-full max-w-md mx-auto flex items-center justify-center">
+                 <Image 
+                    src="https://freepik.cdnpk.net/img/story-sets/mental-health/rafiki-3382.png"
+                    alt="Illustration of a person meditating peacefully"
+                    width={400}
+                    height={400}
+                    className="w-full h-auto max-w-md mx-auto rounded-xl object-contain"
+                 />
               </div>
             </div>
           </div>
