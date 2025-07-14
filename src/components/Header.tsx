@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 import React, { useEffect, useState } from "react";
 import AuthButton from "./AuthButton";
+import { useAuth } from "@/contexts/AuthContext";
 
 const MindBloomIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg {...props} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,6 +16,7 @@ const MindBloomIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function Header() {
   const [isClient, setIsClient] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     setIsClient(true);
@@ -29,6 +31,14 @@ export default function Header() {
             <span className="font-bold sm:inline-block">MindBloom</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-2 text-sm">
+             {user && (
+               <Link
+                href="/dashboard"
+                className="transition-colors text-foreground/60 rounded-md px-3 py-2 hover:bg-primary/20 hover:text-foreground font-medium hover:font-bold"
+              >
+                Dashboard
+              </Link>
+            )}
             <Link
               href="/check-in"
               className="transition-colors text-foreground/60 rounded-md px-3 py-2 hover:bg-primary/20 hover:text-foreground font-medium hover:font-bold"
