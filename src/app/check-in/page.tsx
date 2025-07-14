@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Heart } from "lucide-react";
 
 function FormSkeleton() {
   return (
@@ -49,6 +50,9 @@ export default function CheckInPage() {
       <main className="flex-1 py-12 md:py-24">
         <div className="container">
           <div className="flex flex-col items-center space-y-4 text-center">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
+                <Heart className="h-6 w-6 text-primary-foreground" />
+            </div>
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Emotion Check-in</h1>
             <p className="max-w-[700px] text-muted-foreground md:text-xl">
               Let's take a moment to understand how you're feeling. This is a safe space, just for you.

@@ -15,7 +15,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { MessageSquarePlus, MessageCircle } from 'lucide-react';
+import { MessageSquarePlus, MessageCircle, Users } from 'lucide-react';
 import Link from 'next/link';
 
 const threadSchema = z.object({
@@ -72,6 +72,9 @@ export default function ForumHome() {
     return (
         <div>
             <div className="flex flex-col items-center space-y-4 text-center">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
+                    <Users className="h-6 w-6 text-primary-foreground" />
+                </div>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Community</h1>
                 <p className="max-w-[700px] text-muted-foreground md:text-xl">
                     Share experiences, ask questions, and find support. You are not alone.
