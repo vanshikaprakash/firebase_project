@@ -12,21 +12,19 @@ export default function AboutPage() {
       <main className="flex-1">
         <section className="w-full pt-12 md:pt-24 lg:pt-32 pb-10 md:pb-12 lg:pb-14 bg-secondary/20">
           <div className="container px-4 md:px-6">
-            <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-left">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-2">
-                      <Lightbulb className="h-6 w-6 text-primary-foreground" />
-                    </div>
-                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Our Philosophy</h1>
-                    <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                      A gentle approach to mental wellness, designed for students.
-                    </p>
+            <div className="flex flex-col items-center text-center gap-12">
+              <div className="flex flex-col items-center space-y-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-2">
+                  <Lightbulb className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <p className="max-w-[600px] text-muted-foreground text-center md:text-left">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Our Philosophy</h1>
+                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  A gentle approach to mental wellness, designed for students.
+                </p>
+                <p className="max-w-[800px] text-muted-foreground">
                     College is a time of immense growth, but it can also be a period of significant stress and emotional challenge. We believe that mental wellness isn't about achieving a constant state of happiness, but about building the resilience to navigate the ups and downs of life.
                 </p>
-                <p className="max-w-[600px] text-muted-foreground text-center md:text-left">
+                <p className="max-w-[800px] text-muted-foreground">
                     MindBloom was created to be a safe, non-judgmental space where you can pause, connect with your feelings, and find small, actionable steps to move forward. We're not here to replace professional therapy, but to offer a first step, a daily companion, and a reminder that you're not alone.
                 </p>
               </div>
