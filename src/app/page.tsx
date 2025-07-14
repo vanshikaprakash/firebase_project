@@ -11,18 +11,33 @@ import Footer from '@/components/Footer';
 import { cn } from '@/lib/utils';
 
 const HeroIllustration = () => (
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#D1C4E9" d="M38.1,-49.9C51.5,-42.2,65.9,-32.8,73.4,-19.1C80.9,-5.4,81.5,12.5,74.5,26.4C67.5,40.3,52.9,50.2,38.1,56.9C23.3,63.6,8.2,67.1,-5.9,65.8C-20,64.5,-40.1,58.4,-53,46.9C-65.9,35.4,-71.6,17.7,-70.8,0.9C-70.1,-15.9,-62.8,-31.8,-51.2,-40.5C-39.6,-49.2,-23.7,-50.7,-9.1,-52.1C5.5,-53.5,11,-55.8,24.6,-57.6C38.1,-59.4,38.1,-49.9,38.1,-49.9" transform="translate(100 100)" style={{opacity: 0.2}}/>
-      <g transform="translate(100 100) scale(0.8)">
-        <path d="M-27.4-44.6C-16-52.9-1.2-56.9,12.7-53.7C26.6-50.5,39.6-40.1,47.5-27.2C55.4-14.3,58.2,1.1,53.8,14.6C49.4,28.1,37.8,39.7,24.5,44.5C11.2,49.3,-3.8,47.3,-19.2,42.4C-34.6,37.5,-50.4,29.7,-57.1,17.2C-63.8,4.7,-61.4,-12.5,-53.4,-26.4C-45.4,-40.3,-31.8,-50.9,-27.4,-44.6" fill="#A7FFEB" style={{opacity: 0.3}} transform="translate(15, -15) rotate(20)" />
-        <path d="M-34.9,-54.9C-28.5,-67.2,-14.2,-73.2,2.8,-73.4C19.9,-73.5,39.8,-67.9,51.6,-56.2C63.4,-44.5,67.1,-26.7,65.5,-10.8C63.9,5.2,57.1,19.3,47.3,31.2C37.5,43,24.8,52.6,10.6,56.5C-3.5,60.4,-19.1,58.7,-32.8,52.2C-46.4,45.7,-58.2,34.4,-63.3,20.4C-68.5,6.4,-67,-10.3,-59.6,-22.8C-52.2,-35.3,-38.9,-43.6,-34.9,-54.9Z" fill="white" transform="translate(0,0)" filter="url(#f1)"/>
-        <text x="0" y="5" fontFamily="var(--font-pt-sans)" fontSize="24" textAnchor="middle" fill="#333">Clarity</text>
-      </g>
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="400" height="400">
       <defs>
-        <filter id="f1" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style={{stopColor: '#D1C4E9', stopOpacity: 1}} />
+          <stop offset="100%" style={{stopColor: '#A7FFEB', stopOpacity: 1}} />
+        </linearGradient>
+        <filter id="softGlow" x="-0.5" y="-0.5" width="2" height="2">
+            <feGaussianBlur stdDeviation="5" result="coloredBlur" />
+            <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
         </filter>
       </defs>
+      <g opacity="0.4" filter="url(#softGlow)">
+        <path fill="#F5F5F5" d="M60.1,-58.8C75.6,-45.3,84.2,-22.7,84.1,-0.3C84.1,22.1,75.4,44.2,60.2,58.8C45,73.4,22.5,80.5,-1.3,81.8C-25.1,83,-50.2,78.4,-64,65.1C-77.8,51.8,-80.3,29.9,-77.3,10.2C-74.3,-9.5,-65.8,-27,-52.8,-40.4C-39.8,-53.8,-22.3,-63.1,0.5,-63.6C23.3,-64.1,44.6,-56.3,60.1,-58.8Z" transform="translate(100 100)" />
+      </g>
+      <g transform="translate(100 100) scale(0.8)">
+        <path d="M0,70 Q-70,0 0,-70 Q70,0 0,70" fill="url(#grad1)" opacity="0.3" />
+        <path d="M-20,0 a20,20 0 1,0 40,0 a20,20 0 1,0 -40,0" fill="#FFFFFF" />
+        <path d="M-10, -50 Q0,-60 10,-50" stroke="#D1C4E9" strokeWidth="3" fill="none" strokeLinecap="round" />
+        <path d="M-30, -30 Q0,-40 30,-30" stroke="#A7FFEB" strokeWidth="3" fill="none" strokeLinecap="round" />
+        <path d="M-40, 0 Q0,-15 40,0" stroke="#D1C4E9" strokeWidth="4" fill="none" strokeLinecap="round" />
+        <path d="M-30, 30 Q0,15 30,30" stroke="#A7FFEB" strokeWidth="3" fill="none" strokeLinecap="round" />
+        <circle cx="0" cy="0" r="10" fill="white" />
+        <path d="M-15,60 C-25,20 25,20 15,60 Q0,75 -15,60" fill="#FFFFFF" opacity="0.9"/>
+      </g>
     </svg>
 );
 
