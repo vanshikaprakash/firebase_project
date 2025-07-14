@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { PT_Sans } from 'next/font/google';
 import { AuthProvider } from '@/contexts/AuthContext';
+import BackToTopButton from '@/components/BackToTopButton';
 
 const ptSans = PT_Sans({
   subsets: ['latin'],
@@ -34,6 +35,7 @@ export default function RootLayout({
           <AuthProvider>
             {children}
             <Toaster />
+            <BackToTopButton />
           </AuthProvider>
         </ThemeProvider>
       </body>

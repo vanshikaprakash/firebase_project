@@ -5,10 +5,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, BrainCircuit, Heart, Users, ChevronUp } from 'lucide-react';
+import { ArrowRight, BrainCircuit, Heart, Users } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { cn } from '@/lib/utils';
 
 const moods = [
   { emoji: '😌', text: 'Calm' },
@@ -44,29 +43,6 @@ const AnimatedEmoji = () => {
 
 
 export default function Home() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const toggleVisibility = () => {
-    if (window.scrollY > 400) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
-  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-background font-sans">
@@ -200,19 +176,6 @@ export default function Home() {
         </section>
       </main>
       <Footer />
-       <Button
-        onClick={scrollToTop}
-        className={cn(
-          'fixed bottom-8 right-8 h-12 w-12 rounded-full shadow-lg transition-all duration-300 hover:scale-110',
-          'z-50',
-          isVisible ? 'opacity-100' : 'opacity-0'
-        )}
-        variant="default"
-        size="icon"
-        aria-label="Back to top"
-      >
-        <ChevronUp className="h-6 w-6" />
-      </Button>
     </div>
   );
 }
