@@ -10,20 +10,20 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
-        <section className="w-full pt-12 md:pt-24 lg:pt-32 pb-10 md:pb-12 lg:pb-14 bg-gray-50/50">
+        <section className="w-full pt-12 md:pt-24 lg:pt-32 pb-10 md:pb-12 lg:pb-14 bg-secondary/20">
           <div className="container px-4 md:px-6">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
+                <div className="space-y-2 text-center md:text-left">
                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Our Philosophy</h1>
-                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                   <p className="max-w-[600px] text-muted-foreground md:text-xl mx-auto md:mx-0">
                     A gentle approach to mental wellness, designed for students.
                    </p>
                 </div>
-                <p className="max-w-[600px] text-muted-foreground">
+                <p className="max-w-[600px] text-muted-foreground text-center md:text-left">
                     College is a time of immense growth, but it can also be a period of significant stress and emotional challenge. We believe that mental wellness isn't about achieving a constant state of happiness, but about building the resilience to navigate the ups and downs of life.
                 </p>
-                <p className="max-w-[600px] text-muted-foreground">
+                <p className="max-w-[600px] text-muted-foreground text-center md:text-left">
                     MindBloom was created to be a safe, non-judgmental space where you can pause, connect with your feelings, and find small, actionable steps to move forward. We're not here to replace professional therapy, but to offer a first step, a daily companion, and a reminder that you're not alone.
                 </p>
               </div>
