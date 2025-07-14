@@ -50,10 +50,10 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:gap-16 mt-12">
-              <Card>
-                <CardHeader>
-                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 mb-2">
-                        <Lightbulb className="h-6 w-6 text-primary" />
+              <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none bg-secondary/30">
+                <CardHeader className="items-center">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
+                        <Lightbulb className="h-6 w-6 text-primary-foreground" />
                     </div>
                     <CardTitle className="text-center">Small, Actionable Steps</CardTitle>
                 </CardHeader>
@@ -61,10 +61,10 @@ export default function AboutPage() {
                     <p className="text-sm text-muted-foreground text-center">We believe in the power of micro-habits. Lasting change comes from small, consistent actions, not overwhelming transformations.</p>
                 </CardContent>
               </Card>
-               <Card>
-                <CardHeader>
-                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 mb-2">
-                        <Heart className="h-6 w-6 text-primary" />
+               <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none bg-secondary/30">
+                <CardHeader className="items-center">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
+                        <Heart className="h-6 w-6 text-primary-foreground" />
                     </div>
                     <CardTitle className="text-center">Empathy & Non-Judgment</CardTitle>
                 </CardHeader>
@@ -72,10 +72,10 @@ export default function AboutPage() {
                     <p className="text-sm text-muted-foreground text-center">This is a safe space. All feelings are valid, and our goal is to provide gentle, understanding support without pressure.</p>
                 </CardContent>
               </Card>
-               <Card>
-                <CardHeader>
-                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 mb-2">
-                        <Users className="h-6 w-6 text-primary" />
+               <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none bg-secondary/30">
+                <CardHeader className="items-center">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
+                        <Users className="h-6 w-6 text-primary-foreground" />
                     </div>
                     <CardTitle className="text-center">The Power of Connection</CardTitle>
                 </CardHeader>

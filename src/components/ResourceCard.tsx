@@ -14,12 +14,12 @@ export default function ResourceCard({ resource }: ResourceCardProps) {
     const { icon: Icon, title, summary, details } = resource;
 
     return (
-        <Card className="flex flex-col shadow-md hover:shadow-lg transition-shadow">
+        <Card className="flex flex-col shadow-md hover:shadow-xl hover:-translate-y-1 transition-all">
             <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value={`item-${resource.id}`} className="border-b-0">
                     <CardHeader className="items-center text-center p-6 pb-2">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 mb-2">
-                           <Icon className="h-6 w-6 text-primary" />
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
+                           <Icon className="h-6 w-6 text-primary-foreground" />
                         </div>
                         <CardTitle className="text-lg font-headline">{title}</CardTitle>
                         <CardDescription className="text-sm">{summary}</CardDescription>

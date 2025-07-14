@@ -1,8 +1,9 @@
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { BookOpen, Music, Video, Clock, PenSquare, Moon } from "lucide-react";
+import { BookOpen, Music, Video, Clock, PenSquare, Moon, Feather } from "lucide-react";
 import type { LucideIcon } from 'lucide-react';
+import Link from "next/link";
 
 const calmResources: {
   icon: LucideIcon;
@@ -56,6 +57,9 @@ export default function CalmCornerPage() {
         <section id="calm-corner" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
+                  <Feather className="h-6 w-6 text-primary-foreground" />
+              </div>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
                 Calm Corner
               </h1>
@@ -65,16 +69,16 @@ export default function CalmCornerPage() {
             </div>
             <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-12">
               {calmResources.map((resource) => (
-                <a
+                <Link
                   key={resource.title}
                   href={resource.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block group"
                 >
-                  <div className="flex flex-col h-full bg-card p-6 rounded-xl shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 mb-4">
-                      <resource.icon className="h-6 w-6 text-primary" />
+                  <div className="flex flex-col h-full bg-card p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
+                      <resource.icon className="h-6 w-6 text-primary-foreground" />
                     </div>
                     <h3 className="text-lg font-bold mb-2">{resource.title}</h3>
                     <p className="text-sm text-muted-foreground flex-1">
@@ -84,7 +88,7 @@ export default function CalmCornerPage() {
                       Visit Resource &rarr;
                     </span>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

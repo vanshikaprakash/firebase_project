@@ -37,8 +37,8 @@ export default function ResourcesPage() {
                 <section className="w-full py-12 md:py-16 lg:py-20">
                     <div className="container px-4 md:px-6">
                         <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
-                                <BookOpen className="h-8 w-8 text-primary" />
+                             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
+                                <BookOpen className="h-6 w-6 text-primary-foreground" />
                             </div>
                             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Student Wellness Resources</h1>
                             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -47,7 +47,7 @@ export default function ResourcesPage() {
                         </div>
 
                         {/* Featured Toolkit Section */}
-                        <Card className="mt-12 w-full max-w-4xl mx-auto shadow-lg bg-background">
+                        <Card className="mt-12 w-full max-w-4xl mx-auto shadow-lg bg-background hover:shadow-xl hover:-translate-y-1 transition-all">
                             <CardHeader className="text-center">
                                 <div className="inline-block mx-auto rounded-full bg-accent/20 p-2 mb-2">
                                     <Star className="h-6 w-6 text-accent-foreground"/>
@@ -58,8 +58,8 @@ export default function ResourcesPage() {
                             <CardContent className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                                 {featuredToolkit.tools.map(tool => (
                                     <div key={tool.name} className="flex flex-col items-center gap-2 p-2 rounded-lg transition-colors hover:bg-primary/5">
-                                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                                            <tool.icon className="h-6 w-6 text-primary" />
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
+                                            <tool.icon className="h-6 w-6 text-primary-foreground" />
                                         </div>
                                         <span className="text-sm font-medium">{tool.name}</span>
                                     </div>
