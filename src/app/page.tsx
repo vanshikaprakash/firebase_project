@@ -72,7 +72,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-background font-sans">
       <Header />
       <main className="flex-1">
-        <section className="w-full py-20 md:py-32 lg:py-40 bg-secondary/30">
+        <section className="w-full py-20 md:py-24 lg:py-28 bg-secondary/30">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-6">
