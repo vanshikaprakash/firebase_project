@@ -36,6 +36,12 @@ export default function Header() {
               Check-in
             </Link>
             <Link
+              href="/calm-corner"
+              className="transition-colors text-foreground/60 rounded-md px-3 py-2 hover:bg-primary/20 hover:text-foreground font-medium hover:font-bold"
+            >
+              Calm Corner
+            </Link>
+            <Link
               href="/resources"
               className="transition-colors text-foreground/60 rounded-md px-3 py-2 hover:bg-primary/20 hover:text-foreground font-medium hover:font-bold"
             >
