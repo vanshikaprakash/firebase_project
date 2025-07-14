@@ -1,42 +1,47 @@
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Link from "next/link";
-import React from "react";
+import { BookOpen, Music, Video, Clock, PenSquare, Moon } from "lucide-react";
+import type { LucideIcon } from 'lucide-react';
 
-const calmResources = [
+const calmResources: {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  url: string;
+}[] = [
   {
-    emoji: "📘",
+    icon: BookOpen,
     title: "Atomic Habits",
     description: "An easy & proven way to build good habits & break bad ones.",
     url: "https://jamesclear.com/atomic-habits",
   },
   {
-    emoji: "🎵",
+    icon: Music,
     title: "Peaceful Piano",
     description: "Relax and indulge with beautiful piano pieces on Spotify.",
     url: "https://open.spotify.com/playlist/37i9dQZF1DWXe9gFZP0gtP",
   },
   {
-    emoji: "🧘",
+    icon: Video,
     title: "10-Min Meditation",
     description: "A guided mindfulness meditation to help you be more present.",
     url: "https://www.youtube.com/watch?v=inpok4MKVLM",
   },
   {
-    emoji: "⏰",
+    icon: Clock,
     title: "Deep Work Lofi",
     description: "Lofi hip hop radio - beats to relax, study, and focus.",
     url: "https://www.youtube.com/watch?v=wGgbo-QtL58",
   },
   {
-    emoji: "📓",
+    icon: PenSquare,
     title: "Stoic Journal App",
     description: "A journaling app that helps you reflect and live a more virtuous life.",
     url: "https://stoic.app/",
   },
   {
-    emoji: "🌙",
+    icon: Moon,
     title: "Insight Timer",
     description: "The #1 free app for sleep, anxiety, and stress with guided meditations.",
     url: "https://insighttimer.com/",
@@ -65,14 +70,19 @@ export default function CalmCornerPage() {
                   href={resource.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block"
+                  className="block group"
                 >
-                  <div className="flex flex-col h-full bg-card p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <div className="text-4xl mb-4">{resource.emoji}</div>
+                  <div className="flex flex-col h-full bg-card p-6 rounded-xl shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 mb-4">
+                      <resource.icon className="h-6 w-6 text-primary" />
+                    </div>
                     <h3 className="text-lg font-bold mb-2">{resource.title}</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground flex-1">
                       {resource.description}
                     </p>
+                    <span className="mt-4 text-sm font-semibold text-primary group-hover:underline">
+                      Visit Resource &rarr;
+                    </span>
                   </div>
                 </a>
               ))}
