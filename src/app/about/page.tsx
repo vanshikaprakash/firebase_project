@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lightbulb, Heart, Users } from "lucide-react";
-import Image from "next/image";
 import React from "react";
 
 export default function AboutPage() {
@@ -29,11 +28,9 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="w-full max-w-md mx-auto flex items-center justify-center">
-                 <Image 
+                 <img
                     src="https://freepik.cdnpk.net/img/story-sets/emotional-intelligence/amico-7572.png"
                     alt="Illustration showing a person watering a plant growing out of a head, symbolizing growth"
-                    width={400}
-                    height={400}
                     className="w-full h-auto max-w-md mx-auto rounded-xl object-contain"
                  />
               </div>

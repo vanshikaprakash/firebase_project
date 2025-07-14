@@ -9,7 +9,6 @@ import { ArrowRight, BrainCircuit, Heart, Users, ChevronUp } from 'lucide-react'
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -62,11 +61,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="w-full max-w-md mx-auto flex items-center justify-center">
-                 <Image 
+                 <img
                     src="https://freepik.cdnpk.net/img/story-sets/mental-health/rafiki-3382.png"
                     alt="Illustration of a person meditating peacefully"
-                    width={400}
-                    height={400}
                     className="w-full h-auto max-w-md mx-auto rounded-xl object-contain"
                  />
               </div>
