@@ -19,6 +19,45 @@ const moods = [
   { emoji: '🧘', text: 'Reflecting' },
 ];
 
+const calmResources = [
+    {
+        emoji: '📘',
+        title: 'The Power of Now',
+        description: 'A guide to spiritual enlightenment and living in the present moment.',
+        url: 'https://www.goodreads.com/book/show/6708.The_Power_of_Now'
+    },
+    {
+        emoji: '🎵',
+        title: 'Peaceful Piano',
+        description: 'A popular Spotify playlist for calm, focus, and relaxation.',
+        url: 'https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO'
+    },
+    {
+        emoji: '▶️',
+        title: 'Deep Focus Music',
+        description: 'A YouTube stream with ambient music to help you concentrate.',
+        url: 'https://www.youtube.com/watch?v=2FtcZKqUMFQ'
+    },
+    {
+        emoji: '🧘‍♀️',
+        title: '10-Min Mindfulness',
+        description: 'A guided meditation video from Calm for finding your center.',
+        url: 'https://www.youtube.com/watch?v=inpok4MKVLM'
+    },
+    {
+        emoji: '📓',
+        title: 'Reflectly App',
+        description: 'An AI-powered journaling app to help you structure your thoughts.',
+        url: 'https://reflectly.app'
+    },
+    {
+        emoji: '⏰',
+        title: 'Lofi Pomodoro Timer',
+        description: 'A study timer with lofi music to boost productivity and focus.',
+        url: 'https://www.youtube.com/watch?v=wGgbo-QtL58'
+    }
+];
+
 const AnimatedEmoji = () => {
   const [currentMoodIndex, setCurrentMoodIndex] = useState(0);
 
@@ -148,7 +187,37 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="features" className="w-full py-20 md:py-24 lg:py-32 bg-secondary/30">
+        <section id="calm-corner" className="w-full py-20 md:py-24 lg:py-32 bg-secondary/30">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">Calm Corner</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  A peaceful space to discover resources for your mind, mood, and motivation.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl gap-6 mt-12 sm:grid-cols-2 lg:grid-cols-3">
+              {calmResources.map((resource) => (
+                <a
+                  key={resource.title}
+                  href={resource.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                >
+                  <Card className="p-6 h-full flex flex-col bg-background dark:bg-muted shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div className="text-3xl mb-3">{resource.emoji}</div>
+                    <h3 className="font-bold mb-2 text-foreground">{resource.title}</h3>
+                    <p className="text-sm text-muted-foreground flex-1">{resource.description}</p>
+                  </Card>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="features" className="w-full py-20 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="grid gap-10 lg:grid-cols-2">
                  <div className="flex flex-col justify-center space-y-4">
