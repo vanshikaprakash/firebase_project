@@ -10,30 +10,37 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { cn } from '@/lib/utils';
 
-const HeroIllustration = () => (
-    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-        <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{stopColor: 'hsl(var(--primary))', stopOpacity: 0.8}} />
-                <stop offset="100%" style={{stopColor: 'hsl(var(--accent))', stopOpacity: 0.8}} />
-            </linearGradient>
-            <filter id="softGlow" x="-0.5" y="-0.5" width="2" height="2">
-                <feGaussianBlur stdDeviation="10" result="coloredBlur" />
-                <feMerge>
-                    <feMergeNode in="coloredBlur" />
-                    <feMergeNode in="SourceGraphic" />
-                </feMerge>
-            </filter>
-        </defs>
-        <g filter="url(#softGlow)">
-            <circle cx="200" cy="200" r="180" fill="url(#grad1)" />
-            <path d="M150 250 C 180 200, 220 200, 250 250" stroke="hsl(var(--primary-foreground))" strokeWidth="4" fill="none" strokeLinecap="round" />
-            <path d="M175 220 Q 200 180, 225 220" stroke="hsl(var(--primary-foreground))" strokeWidth="4" fill="none" strokeLinecap="round" />
-            <circle cx="180" cy="200" r="8" fill="hsl(var(--primary-foreground))" />
-            <circle cx="220" cy="200" r="8" fill="hsl(var(--primary-foreground))" />
-        </g>
-    </svg>
-);
+const moods = [
+  { emoji: '😌', text: 'Calm' },
+  { emoji: '😊', text: 'Happy' },
+  { emoji: '😢', text: 'Sad' },
+  { emoji: '😠', text: 'Angry' },
+  { emoji: '😴', text: 'Tired' },
+  { emoji: '🧘', text: 'Reflecting' },
+];
+
+const AnimatedEmoji = () => {
+  const [currentMoodIndex, setCurrentMoodIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMoodIndex((prevIndex) => (prevIndex + 1) % moods.length);
+    }, 2000); // Change emoji every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentMood = moods[currentMoodIndex];
+
+  return (
+    <div className="flex flex-col justify-center items-center w-full min-h-64 bg-secondary/30 rounded-xl p-8">
+      <div className="text-6xl sm:text-7xl md:text-8xl transition-transform duration-500 ease-in-out transform scale-100 hover:scale-110">
+        {currentMood.emoji}
+      </div>
+      <p className="mt-4 text-lg font-medium text-muted-foreground">{currentMood.text}</p>
+    </div>
+  );
+};
 
 
 export default function Home() {
@@ -87,7 +94,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="w-full max-w-md mx-auto flex items-center justify-center p-8">
-                 <HeroIllustration />
+                 <AnimatedEmoji />
               </div>
             </div>
           </div>
