@@ -28,11 +28,12 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="w-full max-w-md mx-auto flex items-center justify-center">
-                 <img
-                    src="https://freepik.cdnpk.net/img/story-sets/emotional-intelligence/amico-7572.png"
-                    alt="Illustration showing a person watering a plant growing out of a head, symbolizing growth"
-                    className="w-full h-auto max-w-md mx-auto rounded-xl object-contain"
-                 />
+                 <div className="bg-secondary/40 p-8 rounded-xl text-center shadow-md">
+                    <blockquote className="italic text-muted-foreground text-lg">
+                        "The best time to plant a tree was 20 years ago. The second best time is now."
+                    </blockquote>
+                    <p className="mt-4 text-sm font-semibold">— Chinese Proverb</p>
+                 </div>
               </div>
             </div>
           </div>

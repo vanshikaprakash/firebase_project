@@ -60,12 +60,8 @@ export default function Home() {
                 </Button>
                 </div>
               </div>
-              <div className="w-full max-w-md mx-auto flex items-center justify-center">
-                 <img
-                    src="https://freepik.cdnpk.net/img/story-sets/mental-health/rafiki-3382.png"
-                    alt="Illustration of a person meditating peacefully"
-                    className="w-full h-auto max-w-md mx-auto rounded-xl object-contain"
-                 />
+              <div className="w-full max-w-md mx-auto flex items-center justify-center p-8">
+                 <div className="w-full h-64 rounded-xl bg-gradient-to-br from-primary/30 via-accent/30 to-secondary shadow-inner animate-pulse-slow"></div>
               </div>
             </div>
           </div>
