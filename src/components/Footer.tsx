@@ -12,7 +12,7 @@ export default function Footer() {
             <Link href="/privacy" className="transition-colors hover:text-foreground">Privacy</Link>
         </nav>
         <p className="text-center text-sm leading-loose text-muted-foreground">
-          Made with ❤️ by vanshika
+          Made with ❤️ by Vanshika
         </p>
       </div>
     </footer>
