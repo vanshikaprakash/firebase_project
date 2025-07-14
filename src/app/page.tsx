@@ -1,13 +1,41 @@
 
+'use client';
+
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, BrainCircuit, Heart, Users } from 'lucide-react';
+import { ArrowRight, BrainCircuit, Heart, Users, ChevronUp } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 400) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility);
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-background font-sans">
       <Header />
@@ -25,12 +53,12 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-4 min-[400px]:flex-row">
-                  <Button asChild size="lg" className="shadow-lg hover:shadow-xl transition-shadow">
-                    <Link href="/check-in">
-                      Start Your Check-in
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
+                <Button asChild size="lg" className="shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300">
+                  <Link href="/check-in">
+                    Start Your Check-in
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
                 </div>
               </div>
               <Image
@@ -56,7 +84,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 mt-12">
-              <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none bg-secondary/30">
+              <Card className="shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-none bg-secondary/30">
                 <CardHeader>
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
                     <Heart className="h-6 w-6 text-primary-foreground" />
@@ -67,7 +95,7 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground">Share how you're feeling. Our simple flow makes it easy to identify and articulate your emotions.</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none bg-secondary/30">
+              <Card className="shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-none bg-secondary/30">
                 <CardHeader>
                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
                     <BrainCircuit className="h-6 w-6 text-primary-foreground" />
@@ -78,7 +106,7 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground">Receive personalized, AI-powered micro-suggestions to help you navigate your feelings.</p>
                 </CardContent>
               </Card>
-              <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none bg-secondary/30">
+              <Card className="shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-none bg-secondary/30">
                 <CardHeader>
                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 mb-4">
                     <Users className="h-6 w-6 text-primary-foreground" />
@@ -106,7 +134,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="grid gap-6">
-                    <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none">
+                    <Card className="shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-none">
                         <CardHeader className="flex flex-row items-center gap-4">
                             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
                                 <Heart className="h-6 w-6 text-primary-foreground" />
@@ -117,7 +145,7 @@ export default function Home() {
                             </div>
                         </CardHeader>
                     </Card>
-                     <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none">
+                     <Card className="shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-none">
                         <CardHeader className="flex flex-row items-center gap-4">
                             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
                                 <BrainCircuit className="h-6 w-6 text-primary-foreground" />
@@ -128,7 +156,7 @@ export default function Home() {
                             </div>
                         </CardHeader>
                     </Card>
-                    <Card className="shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-none">
+                    <Card className="shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-none">
                         <CardHeader className="flex flex-row items-center gap-4">
                             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
                                 <Users className="h-6 w-6 text-primary-foreground" />
@@ -145,6 +173,19 @@ export default function Home() {
         </section>
       </main>
       <Footer />
+       <Button
+        onClick={scrollToTop}
+        className={cn(
+          'fixed bottom-8 right-8 h-12 w-12 rounded-full shadow-lg transition-all duration-300 hover:scale-110',
+          'z-50',
+          isVisible ? 'opacity-100' : 'opacity-0'
+        )}
+        variant="default"
+        size="icon"
+        aria-label="Back to top"
+      >
+        <ChevronUp className="h-6 w-6" />
+      </Button>
     </div>
   );
 }
