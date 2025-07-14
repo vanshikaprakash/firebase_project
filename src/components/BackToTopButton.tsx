@@ -35,7 +35,7 @@ export default function BackToTopButton() {
     <Button
         onClick={scrollToTop}
         className={cn(
-          'fixed bottom-8 right-8 h-12 w-12 rounded-full shadow-lg transition-all duration-300 hover:scale-110',
+          'fixed bottom-10 right-10 h-11 w-11 rounded-full shadow-lg transition-all duration-300 hover:scale-110',
           'z-50',
           isVisible ? 'opacity-100' : 'opacity-0'
         )}
