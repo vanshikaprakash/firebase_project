@@ -8,7 +8,7 @@ export default function Footer() {
         <nav className="flex gap-4 sm:gap-6 text-sm text-muted-foreground">
             <Link href="/about" className="transition-colors hover:text-foreground">About</Link>
             <Link href="/resources" className="transition-colors hover:text-foreground">Resources</Link>
-            <Link href="/forum" className="transition-colors hover:text-foreground">Forum</Link>
+            <Link href="/community" className="transition-colors hover:text-foreground">Community</Link>
             <Link href="/privacy" className="transition-colors hover:text-foreground">Privacy</Link>
         </nav>
         <p className="text-center text-sm leading-loose text-muted-foreground">

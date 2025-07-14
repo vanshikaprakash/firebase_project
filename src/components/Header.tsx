@@ -48,10 +48,10 @@ export default function Header() {
               Resources
             </Link>
             <Link
-              href="/forum"
+              href="/community"
               className="transition-colors text-foreground/60 rounded-md px-3 py-2 hover:bg-primary/20 hover:text-foreground font-medium hover:font-bold"
             >
-              Forum
+              Community
             </Link>
              <Link
               href="/about"

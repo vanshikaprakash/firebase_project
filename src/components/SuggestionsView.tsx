@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useSearchParams, useRouter } from 'next/navigation';
@@ -92,9 +93,9 @@ export default function SuggestionsView() {
                         <Link href="/check-in">Start a New Check-in</Link>
                     </Button>
                     <Button asChild variant="outline" size="lg" className="w-full md:w-auto">
-                        <Link href="/forum">
+                        <Link href="/community">
                             <Share2 className="mr-2 h-4 w-4" />
-                            Go to Forum
+                            Go to Community
                         </Link>
                     </Button>
                 </div>

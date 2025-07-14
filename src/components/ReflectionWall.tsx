@@ -110,9 +110,9 @@ export default function ReflectionWall() {
     return (
         <div className="mt-12">
             <Alert variant="destructive" className="mb-8">
-                 <AlertTitle className="font-headline">The Community Wall is now the Forum!</AlertTitle>
+                 <AlertTitle className="font-headline">The Community Wall is now the Community!</AlertTitle>
                 <AlertDescription>
-                   To better support discussions, this page is being replaced by our new <Link href="/forum" className="font-bold underline">Community Forum</Link>. Please head there to share and connect!
+                   To better support discussions, this page is being replaced by our new <Link href="/community" className="font-bold underline">Community</Link>. Please head there to share and connect!
                 </AlertDescription>
             </Alert>
         </div>

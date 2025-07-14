@@ -83,9 +83,9 @@ export default function ThreadView({ threadId }: { threadId: string }) {
                 <h2 className="text-2xl font-bold">Thread not found</h2>
                 <p className="text-muted-foreground">This discussion may have been moved or deleted.</p>
                 <Button asChild variant="link" className="mt-4">
-                    <Link href="/forum">
+                    <Link href="/community">
                         <ArrowLeft className="mr-2" />
-                        Back to Forum
+                        Back to Community
                     </Link>
                 </Button>
             </div>
@@ -96,7 +96,7 @@ export default function ThreadView({ threadId }: { threadId: string }) {
         <div className="space-y-8">
             <div>
                  <Button asChild variant="outline" size="sm" className="mb-4">
-                    <Link href="/forum">
+                    <Link href="/community">
                         <ArrowLeft className="mr-2" />
                         Back to All Discussions
                     </Link>

@@ -66,13 +66,13 @@ export default function ForumHome() {
         form.reset();
         setIsDialogOpen(false);
         toast({ title: 'Success!', description: 'Your discussion has been posted.' });
-        router.push(`/forum/${newThread.id}`);
+        router.push(`/community/${newThread.id}`);
     }
 
     return (
         <div>
             <div className="flex flex-col items-center space-y-4 text-center">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Community Forum</h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Community</h1>
                 <p className="max-w-[700px] text-muted-foreground md:text-xl">
                     Share experiences, ask questions, and find support. You are not alone.
                 </p>
@@ -138,7 +138,7 @@ export default function ForumHome() {
             <div className="space-y-4 max-w-3xl mx-auto">
                 {threads.map(thread => (
                      <Card key={thread.id} className="transition-all shadow-sm hover:shadow-xl hover:bg-secondary/30">
-                        <Link href={`/forum/${thread.id}`} className="block">
+                        <Link href={`/community/${thread.id}`} className="block">
                             <CardHeader>
                                 <CardTitle className="text-lg">{thread.title}</CardTitle>
                             </CardHeader>
